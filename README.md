@@ -166,7 +166,7 @@ D’aquesta manera, tindrem més precisió en la representació del sinus com m�
 A l’hora de representar la senyal amb la nota o el to requerit, seguim el següent procediment:
 
 1.Sabem que la nota (Note) ve expressada en semitons, i es correspon amb:
-<img src="img/seno3.png" width="150" align="center">
+<img src="img/seno3.png" width="250" align="center">
 
 2.Sabem que, la freqüència de la sinusoide emmagatzemada a la nostra taula ve determinada per:
 <img src="img/seno4.png" width="250" align="center">
