@@ -53,7 +53,7 @@ Implemente el instrumento `Seno` tomando como modelo el `InstrumentDumb`. La se�
 mediante búsqueda de los valores en una tabla.
 
 - Incluya, a continuación, el código del fichero `seno.cpp` con los métodos de la clase Seno.
-  ```cpp
+```cpp
 #include <iostream>
 #include <math.h>
 #include "seno.h"
@@ -149,7 +149,7 @@ const vector<float> &Seno::synthesize()
   return x;
 }
 
-  ```
+```
 - Explique qué método se ha seguido para asignar un valor a la señal a partir de los contenidos en la tabla,
   e incluya una gráfica en la que se vean claramente (use pelotitas en lugar de líneas) los valores de la
   tabla y los de la señal generada.
