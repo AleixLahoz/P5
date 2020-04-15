@@ -164,7 +164,27 @@ per exemple una taula de longitud N = 8, la podem representar com:
 
 D’aquesta manera, tindrem més precisió en la representació del sinus com més gran sigui la longitud de la taula, N, i podrem generar amb més precisió els tons de diferents freqüències.
 A l’hora de representar la senyal amb la nota o el to requerit, seguim el següent procediment:
-	1.Sabem que la nota (Note) ve expressada en semitons, i es correspon amb:
+
+1.Sabem que la nota (Note) ve expressada en semitons, i es correspon amb:
+<img src="img/seno3.png" width="720" align="center">
+
+2.Sabem que, la freqüència de la sinusoide emmagatzemada a la nostra taula ve determinada per:
+<img src="img/seno4.png" width="720" align="center">
+(En cas que recorrem els valors de la taula de un en un)
+
+3.Si reproduïm els valors de la taula de k en k, aleshores:
+<img src="img/seno5.png" width="720" align="center">
+
+4.Per tant, jugant amb el valor de k podem obtenir sinusoides de la freqüència que vulguem, de manera que si volem reproduir una 
+sinusoide de freqüència f0, corresponent a una determinada Note, calculem k:
+<img src="img/seno6.png" width="720" align="center">
+
+
+5.Això ens genera el següent problema: Com que obtindrem valors de k amb decimals, al actualitzar els valors dels índex de la taula 
+als quals volem accedir, aquests també seran decimals, i no podrem accedir a aquestes posicions perquè no estan definides. Per tal 
+de resoldre aquest problema, realitzem una interpolació lineal entre els valors corresponents als índex superior e inferior als quals 
+està definit el nostre índex actual, de la manera següent:
+<img src="img/seno7.png" width="720" align="center">
 
 
 - Si ha implementado la síntesis por tabla almacenada en fichero externo, incluya a continuación el código
