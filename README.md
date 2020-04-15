@@ -166,7 +166,7 @@ D’aquesta manera, tindrem més precisió en la representació del sinus com m�
 A l’hora de representar la senyal amb la nota o el to requerit, seguim el següent procediment:
 
 1.Sabem que la nota (Note) ve expressada en semitons, i es correspon amb:
-<img src="img/seno3.png" width="300" align="center">
+<img src="img/seno3.png" width="150" align="center">
 
 2.Sabem que, la freqüència de la sinusoide emmagatzemada a la nostra taula ve determinada per:
 <img src="img/seno4.png" width="250" align="center">
@@ -175,12 +175,12 @@ A l’hora de representar la senyal amb la nota o el to requerit, seguim el seg�
 
 3.Si reproduïm els valors de la taula de k en k, aleshores:
 
-<img src="img/seno5.png" width="250" align="center">
+<img src="img/seno5.png" width="280" align="center">
 
 4.Per tant, jugant amb el valor de k podem obtenir sinusoides de la freqüència que vulguem, de manera que si volem reproduir una 
 sinusoide de freqüència f0, corresponent a una determinada Note, calculem k:
 
-<img src="img/seno6.png" width="250" align="center">
+<img src="img/seno6.png" width="350" align="center">
 
 
 5.Això ens genera el següent problema: Com que obtindrem valors de k amb decimals, al actualitzar els valors dels índex de la taula 
