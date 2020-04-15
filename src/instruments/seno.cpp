@@ -75,12 +75,13 @@ const vector<float> &Seno::synthesize()
   for (unsigned int i = 0; i < x.size(); ++i)
   {
 
+
     if ((unsigned int) ceil(index) == tbl.size())
-    {
+    { //Caso especial donde tenemos que interpolar entre el primer y último valor de la tabla
       x[i] = A * (((1.0 - (index - floor(index))) * tbl[floor(index)]) + ((1.0 - (ceil(index) - index)) * tbl[0]));
     }
     else
-    {
+    {//Aplicamos interpolación
       x[i] = A * (((1.0 - (index - floor(index))) * tbl[floor(index)]) + ((1.0 - (ceil(index) - index)) * tbl[ceil(index)]));
     }
     
