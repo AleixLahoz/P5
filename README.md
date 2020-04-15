@@ -153,6 +153,20 @@ const vector<float> &Seno::synthesize()
 - Explique qué método se ha seguido para asignar un valor a la señal a partir de los contenidos en la tabla,
   e incluya una gráfica en la que se vean claramente (use pelotitas en lugar de líneas) los valores de la
   tabla y los de la señal generada.
+
+Primerament tenim en compte que la taula consisteix en un total de N valors del període d’una sinusoide, de forma que si tenim, 
+per exemple una taula de longitud N = 8, la podem representar com:
+
+						Table [ i ] = sin⁡(2π·i/N) 
+
+<img src="img/seno1.png" width="720" align="center">
+<img src="img/seno2.png" width="720" align="center">
+
+D’aquesta manera, tindrem més precisió en la representació del sinus com més gran sigui la longitud de la taula, N, i podrem generar amb més precisió els tons de diferents freqüències.
+A l’hora de representar la senyal amb la nota o el to requerit, seguim el següent procediment:
+	1.Sabem que la nota (Note) ve expressada en semitons, i es correspon amb:
+
+
 - Si ha implementado la síntesis por tabla almacenada en fichero externo, incluya a continuación el código
   del método `command()`.
 
