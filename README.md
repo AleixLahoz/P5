@@ -241,3 +241,8 @@ de su agrado o composición. Se valorará la riqueza instrumental, su modelado y
   `work/music`.
 - Indique, a continuación, la orden necesaria para generar cada una de las señales usando los distintos
   ficheros.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
+  Toy Story:
+	synth band.orc ToyStory_A_Friend_in_me.sco musica.wav
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

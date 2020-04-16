@@ -3,6 +3,7 @@
 #include "seno.h"
 #include "instrumentFM1.h"
 #include "instrumentFM2.h"
+#include "wav.h"
 
 /*
   For each new instrument:
@@ -35,6 +36,10 @@ Instrument *get_instrument(const string &name,
   else if (name == "InstrumentFM2")
   {
     pInst = (Instrument *)new InstrumentFM2(parameters);
+  }
+  else if (name == "Wav")
+  {
+    pInst = (Instrument *)new Wav(parameters);
   }
   return pInst;
 }
