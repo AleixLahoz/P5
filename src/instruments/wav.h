@@ -16,6 +16,7 @@ namespace upc {
     int readcount;
     SNDFILE *inFile;
     SF_INFO inFileInfo;
+    float A;
   public:
     Wav(const std::string &param = "");
     void command(long cmd, long note, long velocity=1); 

@@ -35,6 +35,7 @@ void Wav::command(long cmd, long note, long vel)
   if (cmd == 9)
   { //'Key' pressed: attack begin
     bActive = true;
+    A = vel / 127.;
     //adsr.start();
   }/*
   else if (cmd == 8)
@@ -66,7 +67,7 @@ const vector<float> &Wav::synthesize()
   {
     for (int k = 0; k < readcount; k++)
     {
-      x[k] = data[k]; //put data in the array
+      x[k] = A*data[k]; //put data in the array
     }
   }else{
     x.assign(x.size(), 0);

@@ -200,6 +200,31 @@ està definit el nostre índex actual, de la manera següent:
   sinusoidal. Deberá explicar detalladamente cómo se manifiestan los parámetros del efecto (frecuencia e
   índice de modulación) en la señal generada (se valorará que la explicación esté contenida en las propias
   gráficas, sin necesidad de *literatura*).
+
+Senyal sinusoidal de freqüència 82 Hz:
+
+
+<img src="img/im1.png" width="720" align="center">
+
+  Tremolo sobre senyal sinusoidal:
+
+<img src="img/im2.png" width="720" align="center">
+
+  Vibrato sobre senyal sinusoidal:
+
+<img src="img/im3.png" width="720" align="center">
+
+  De tota manera, com que l'efecte del vibrato és una modulació de la freqüència, s'aprecia més bé en el domini 
+  freqüencial que en domini temporal. En la figura següent veiem clarament l'efecte del vibrato, concretament, 
+  podem veure que el nostre paràmetre I equival a la e i la freqüència de modulació és equivalent a la seva f.
+
+<img src="img/im4.png" width="720" align="center">
+
+  En el nostre cas, no hem estat capaços d'obtenir un resultat tant clar. De tota manera, hem estat capaços
+  d'apreciar l'efecte del vibrato;
+
+<img src="img/im5.png" width="720" align="center">
+
 - Si ha generado algún efecto por su cuenta, explique en qué consiste, cómo lo ha implementado y qué
   resultado ha producido. Incluya, en el directorio `work/ejemplos`, los ficheros necesarios para apreciar
   el efecto, e indique, a continuación, la orden necesaria para generar los ficheros de audio usando el
@@ -214,13 +239,58 @@ deberá venir expresado en semitonos.
 
 - Use el instrumento para generar un vibrato de *parámetros razonables* e incluya una gráfica en la que se
   vea, claramente, la correspondencia entre los valores `N1`, `N2` e `I` con la señal obtenida.
+
+Els paràmetres N1 i N2 marquen la relació entre la freqüència portadora (carrier) i la freqüencia de modulació, 
+  per tant, per realitzar l'efecte del vibrato hem creat un to de 260 Hz i hem seleccionat N1 = 52 i N2 = 3, de 
+  manera que el valor de la freqüència portadora és de 15Hz. Amb aquests valors l'efecte del vibrato és notòri.
+
+  El paràmetre I és l'index de modulació de la freqüència i correspon al nivell màxim i mínim de variació de la 
+  freqüència. S'expressa en semitons. En les següents imatges podem veure clarament l'efecte de l'index de modulació,
+  de manera que a mesura que augmentem el paràmetre més important és la modulació de la freqüència.
+
+  I = 5 / N1 = 52 / N2 = 3
+
+<img src="img/im6.png" width="720" align="center">
+
+  I = 10 / N1 = 52 / N2 = 3
+
+<img src="img/im7.png" width="720" align="center">
+
+  I = 5 / N1 = 52 / N2 = 3
+
+<img src="img/im8.png" width="720" align="center">
+
+
 - Use el instrumento para generar un sonido tipo clarinete y otro tipo campana. Tome los parámetros del
   sonido (N1, N2 e I) y de la envolvente ADSR del citado artículo. Con estos sonidos, genere sendas escalas
   diatónicas (fichero `doremi.sco`) y ponga el resultado en los ficheros `work/doremi/clarinete.wav` y
   `work/doremi/campana.work`.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
+  - CLARINET:
+
+    7 InstrumentFM2 ADSR_A=0.1; ADSR_D=0.00; ADSR_S=0.5; ADSR_R=0.05; I=2; N1 = 3; N2= 2;
+
+    Arxius: clarinet.wav
+
+  - CAMPANA:
+
+    8 InstrumentFM2 ADSR_A=0.01; ADSR_D=0.7; ADSR_S=0.0; ADSR_R=0.5; I=4; N1 = 5; N2= 7;
+
+    Arxius: campana.wav, campana2.wav, campana_escala.wav.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
   * También puede colgar en el directorio work/doremi otras escalas usando sonidos *interesantes*. Por
     ejemplo, violines, pianos, percusiones, espadas láser de la
 	[Guerra de las Galaxias](https://www.starwars.com/), etc.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
+ - PIANOLA
+
+    2   InstrumentFM2   ADSR_A=0.001; ADSR_D=0.1; ADSR_S=0.8; ADSR_R=0.25; I=1.25; N1 = 1; N2= 3;
+
+    Arxius: escala_piano.wav, piano.wav
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ### Orquestación usando el programa synth.
 
@@ -230,9 +300,29 @@ Use el programa `synth` para generar canciones a partir de su partitura MIDI. Co
 
 - En este triste arreglo, la pista 1 corresponde al instrumento solista (puede ser un piano, flautas,
   violines, etc.), y la 2 al bajo (bajo eléctrico, contrabajo, tuba, etc.).
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
+  - PIANO:
+    1   InstrumentFM2   ADSR_A=0.001; ADSR_D=0.1; ADSR_S=0.8; ADSR_R=0.25; I=1.25; N1 = 1; N2= 3;
+
+  - BAIX:
+    2   InstrumentFM2   ADSR_A=0.01; ADSR_D=0.0; ADSR_S=0.0; ADSR_R=0.4; I=1; N1 = 1.0; N2= 3;
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 - Coloque el resultado, junto con los ficheros necesarios para generarlo, en el directorio `work/music`.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
+ Arxiu: toy.wav
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 - Indique, a continuación, la orden necesaria para generar la señal (suponiendo que todos los archivos
   necesarios están en directorio indicado).
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
+  Toy Story:
+ 	synth toy_orc.orc ToyStory_A_Friend_in_me.sco toy.wav
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 También puede orquestar otros temas más complejos, como la banda sonora de *Hawaii5-0* o el villacinco de
 John Lennon *Happy Xmas (War Is Over)* (fichero `The_Christmas_Song_Lennon.sco`), o cualquier otra canción
@@ -243,6 +333,6 @@ de su agrado o composición. Se valorará la riqueza instrumental, su modelado y
   ficheros.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
-  Toy Story:
-	synth band.orc ToyStory_A_Friend_in_me.sco musica.wav
+  REMIX Hawaii5-0:
+	synth orquestra.orc Hawaii5-0.sco hawai.wav
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

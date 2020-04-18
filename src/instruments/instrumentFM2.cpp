@@ -62,9 +62,9 @@ void InstrumentFM2::command(long cmd, long note, long vel) {
     FM = fm/SamplingRate;
     step_vib = 2*M_PI*FM;
 
-    cout << "f0 = " << f0 << " fm = " << fm << "\n";
+    //cout << "f0 = " << f0 << " fm = " << fm << "\n";
     
-    A = (vel / 127.);
+    A = 0.4*(vel / 127.);
     
   }
   else if (cmd == 8) {  //'Key' released: sustain ends, release begins
