@@ -425,3 +425,48 @@ const vector<float> &Wav::synthesize()
   return x;
 }
 ```
+
+ERRORES:
+-----------
+
+En la part inicial de la pràctica, els ususaris de MacOs teníen el següent problema al realitzar l'ordre de 'make release':
+
+<img src="img/error.png" width="500" align="center">
+
+Sembla que el problema provenia del paquet 'midi2scores'. Per solucionar-lo s'ha de substituir el fitxer meson.build pel següent:
+
+inc = include_directories(['include',])
+
+# Librería MIDIFILE
+
+src = [
+    'src/midi2skini.cpp',
+    'src/FileIO.cpp',
+    'src/MidiFile.cpp',
+    'src/Options.cpp',
+    'src/Options_private.cpp',
+]
+
+executable(
+    'midi2skini',
+    sources: src,
+    include_directories: inc,
+    link_args: ['-lm', '-lsndfile'],
+    install: true,
+)
+
+midi2sco = 'midi2sco.py'
+source = join_paths(meson.source_root(), 'src/midi2scores', midi2sco)   # Ruta completa
+prog = midi2sco.split('.')[0]                                             # Nombre sin extensión
+dest = join_paths(get_option('prefix'), get_option('bindir'), prog)
+custom_target(midi2sco,
+    input : source,
+    output : prog,
+    command : ['ln', '-sf', source, dest],
+    build_by_default: true,
+)
+
+Un altre petit problema que vam tenir va ser alhora d'intentar executar el fitxer wav. Pels usuaris 
+de mac el PDF indica que poden utilitzar directament la comanda play [fitxer.wav]. De tota manera, prèviament, 
+s'ha de tenir instal·lat el SoX. Es pot instalar a partir de l'informació de la pàgina: http://macappstore.org/sox/
+
