@@ -437,7 +437,7 @@ Sembla que el problema provenia del paquet 'midi2scores'. Per solucionar-lo s'ha
 
 inc = include_directories(['include',])
 
-# Librería MIDIFILE
+> Librería MIDIFILE
 
 src = [
     'src/midi2skini.cpp',
